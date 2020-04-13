@@ -1,0 +1,13 @@
+CREATE TABLE `fruit` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Unique ID of the fruit.',
+  `label` varchar(255) NOT NULL COMMENT 'Label of the fruit',
+  `weight` float unsigned NOT NULL COMMENT 'Weight of the fruit. Units are stored in weight_unit column.',
+  `weight_unit` varchar(255) NOT NULL COMMENT 'Unit of the weight.',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Stores data on fruits'
+
+CREATE TABLE `fruit_relations` (
+  `fruit_id` int(10) unsigned NOT NULL COMMENT '{fruit}.id of the fruit whose relation is described in this row.',
+  `relation` varchar(255) NOT NULL COMMENT 'Type of relation. Allowed values are: sweeter, bigger',
+  `fruit_id_related` int(10) unsigned NOT NULL COMMENT '{fruit}.id of the fruit that is related to the fruit described in this row.'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
